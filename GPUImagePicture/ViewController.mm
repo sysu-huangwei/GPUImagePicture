@@ -40,11 +40,6 @@
     if (!_blurFilterHorizontal) {
         _blurFilterHorizontal = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"blur"];
         [_blurFilterHorizontal setPoint:CGPointMake(0.000805, 0.000000) forUniformName:@"blurVector"];
-        NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"1067.png"];
-        UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
-        unsigned char* data = RGBADataWithAlpha(image);
-        GLuint tex = LoadTexture_BYTE(data, image.size.width, image.size.height, GL_RGBA);
-        [_blurFilterHorizontal setInteger:tex forUniformName:@"table"];
     }
     return _blurFilterHorizontal;
 }
