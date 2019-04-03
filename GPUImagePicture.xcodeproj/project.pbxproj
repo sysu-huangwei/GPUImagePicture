@@ -15,6 +15,7 @@
 		C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A42254C10F0071FD47 /* LaunchScreen.storyboard */; };
 		C505D4A92254C10F0071FD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C505D4A82254C10F0071FD47 /* main.m */; };
 		C505D4B02254CA230071FD47 /* 逆向.png in Resources */ = {isa = PBXBuildFile; fileRef = C505D4AF2254CA230071FD47 /* 逆向.png */; };
+		C505D4B42254CBF00071FD47 /* blur.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C505D4B32254CBF00071FD47 /* blur.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C505D4A72254C10F0071FD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C505D4A82254C10F0071FD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C505D4AF2254CA230071FD47 /* 逆向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "逆向.png"; sourceTree = "<group>"; };
+		C505D4B32254CBF00071FD47 /* blur.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blur.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		C505D48D2254C10D0071FD47 = {
 			isa = PBXGroup;
 			children = (
+				C505D4B32254CBF00071FD47 /* blur.fsh */,
 				C505D4AF2254CA230071FD47 /* 逆向.png */,
 				C505D4982254C10D0071FD47 /* GPUImagePicture */,
 				C505D4972254C10D0071FD47 /* Products */,
@@ -160,6 +163,7 @@
 				C505D4B02254CA230071FD47 /* 逆向.png in Resources */,
 				C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */,
 				C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */,
+				C505D4B42254CBF00071FD47 /* blur.fsh in Resources */,
 				C505D4A12254C10D0071FD47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
