@@ -14,6 +14,7 @@
 		C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A22254C10F0071FD47 /* Assets.xcassets */; };
 		C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A42254C10F0071FD47 /* LaunchScreen.storyboard */; };
 		C505D4A92254C10F0071FD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C505D4A82254C10F0071FD47 /* main.m */; };
+		C505D4B02254CA230071FD47 /* 逆向.png in Resources */ = {isa = PBXBuildFile; fileRef = C505D4AF2254CA230071FD47 /* 逆向.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C505D4A52254C10F0071FD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C505D4A72254C10F0071FD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C505D4A82254C10F0071FD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C505D4AF2254CA230071FD47 /* 逆向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "逆向.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,13 +52,13 @@
 				ACC27383BDC4CE4C45B2E575 /* Pods-GPUImagePicture.debug.xcconfig */,
 				520E9684406AD48E795DB662 /* Pods-GPUImagePicture.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C505D48D2254C10D0071FD47 = {
 			isa = PBXGroup;
 			children = (
+				C505D4AF2254CA230071FD47 /* 逆向.png */,
 				C505D4982254C10D0071FD47 /* GPUImagePicture */,
 				C505D4972254C10D0071FD47 /* Products */,
 				A07262EDC29A028D01C863DC /* Pods */,
@@ -155,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C505D4B02254CA230071FD47 /* 逆向.png in Resources */,
 				C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */,
 				C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */,
 				C505D4A12254C10D0071FD47 /* Main.storyboard in Resources */,
@@ -371,6 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68A6PPJ4F3;
 				INFOPLIST_FILE = GPUImagePicture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68A6PPJ4F3;
 				INFOPLIST_FILE = GPUImagePicture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

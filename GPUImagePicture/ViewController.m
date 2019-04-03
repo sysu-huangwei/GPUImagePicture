@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <GPUImage/GPUImage.h>
 
 @interface ViewController ()
 
@@ -16,7 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"逆向.png"];
+    UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
+    
+    GPUImageView *view = [[GPUImageView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:view];
+    
+    GPUImagePicture *picture = [[GPUImagePicture alloc] initWithImage:image];
+    
+    GPUImageFilter *filter = [[GPUImageFilter alloc] init];
+    
+    [picture addTarget:filter];
+    [filter addTarget:view];
+    
+    [picture processImage];
 }
 
 
