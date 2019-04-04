@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *sliderValueText;
 @property (strong, nonatomic) IBOutlet UIView *showView;
-
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @end
 
