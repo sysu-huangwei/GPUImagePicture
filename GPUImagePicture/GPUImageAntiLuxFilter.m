@@ -147,7 +147,7 @@ NSString *const kGPUImageAntiLuxFragmentShaderString = SHADER_STRING
  
  void main() {
      
-     vec4 texel = texture2D(cdf, textureCoordinate);
+     vec4 texel = texture2D(inputImageTexture, textureCoordinate);
      vec4 inputTexel = texel;
      vec3 hsv = rgb_to_hsv(texel.rgb);
      
