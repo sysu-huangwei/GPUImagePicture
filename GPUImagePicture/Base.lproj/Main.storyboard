@@ -81,6 +81,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="showView" destination="xge-pW-RCh" id="ihu-YY-TYt"/>
                         <outlet property="sliderValueText" destination="Zwl-53-gRC" id="a31-sc-tZc"/>
                     </connections>
                 </viewController>

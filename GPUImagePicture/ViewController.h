@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *sliderValueText;
+@property (strong, nonatomic) IBOutlet UIView *showView;
 
 @end
 
