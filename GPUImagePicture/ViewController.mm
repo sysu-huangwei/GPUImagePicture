@@ -11,10 +11,11 @@
 #import "GLUtils.h"
 #import "GPUImageStarLightFilter.h"
 #import "GPUImageAntiLuxFilter.h"
+#import "GPUImageBlurFilter.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) GPUImageFilter *blurFilterHorizontal;
-@property (nonatomic, strong) GPUImageFilter *blurFilterVertical;
+@property (nonatomic, strong) GPUImageBlurFilter *blurFilterHorizontal;
+@property (nonatomic, strong) GPUImageBlurFilter *blurFilterVertical;
 @property (nonatomic, strong) GPUImageAntiLuxFilter *antiluxFilter;
 @property (nonatomic, strong) GPUImageStarLightFilter *starlightFilter;
 @end
@@ -51,18 +52,18 @@
 }
 
 
-- (GPUImageFilter *)blurFilterHorizontal {
+- (GPUImageBlurFilter *)blurFilterHorizontal {
     if (!_blurFilterHorizontal) {
-        _blurFilterHorizontal = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"blur"];
-        [_blurFilterHorizontal setPoint:CGPointMake(0.000805, 0.000000) forUniformName:@"blurVector"];
+        _blurFilterHorizontal = [[GPUImageBlurFilter alloc] init];
+        [_blurFilterHorizontal setBlurVector:CGPointMake(0.000805, 0.000000)];
     }
     return _blurFilterHorizontal;
 }
 
-- (GPUImageFilter *)blurFilterVertical {
+- (GPUImageBlurFilter *)blurFilterVertical {
     if (!_blurFilterVertical) {
-        _blurFilterVertical = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"blur"];
-        [_blurFilterVertical setPoint:CGPointMake(0.000000, 0.000805) forUniformName:@"blurVector"];
+        _blurFilterVertical = [[GPUImageBlurFilter alloc] init];
+        [_blurFilterHorizontal setBlurVector:CGPointMake(0.000000, 0.000805)];
     }
     return _blurFilterVertical;
 }

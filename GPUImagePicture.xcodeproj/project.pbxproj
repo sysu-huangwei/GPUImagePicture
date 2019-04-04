@@ -20,6 +20,7 @@
 		C55B2B282255ED5800ABE0C5 /* GPUImageStarLightFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */; };
 		C55B2B2C2255EE4D00ABE0C5 /* GLUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */; };
 		C55B2B2F2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */; };
+		C55B2B322255F9BD00ABE0C5 /* GPUImageBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */; };
 		C5AD5D422255A3500023AAD4 /* antilux.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C5AD5D412255A3500023AAD4 /* antilux.fsh */; };
 		C5AD5D442255A8B90023AAD4 /* cdf.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AD5D432255A8B90023AAD4 /* cdf.png */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,8 @@
 		C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUtils.mm; sourceTree = "<group>"; };
 		C55B2B2D2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageAntiLuxFilter.h; sourceTree = "<group>"; };
 		C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageAntiLuxFilter.m; sourceTree = "<group>"; };
+		C55B2B302255F9BD00ABE0C5 /* GPUImageBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageBlurFilter.h; sourceTree = "<group>"; };
+		C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageBlurFilter.m; sourceTree = "<group>"; };
 		C5AD5D412255A3500023AAD4 /* antilux.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = antilux.fsh; sourceTree = "<group>"; };
 		C5AD5D432255A8B90023AAD4 /* cdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cdf.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +106,8 @@
 				C505D49A2254C10D0071FD47 /* AppDelegate.m */,
 				C505D49C2254C10D0071FD47 /* ViewController.h */,
 				C505D49D2254C10D0071FD47 /* ViewController.mm */,
+				C55B2B302255F9BD00ABE0C5 /* GPUImageBlurFilter.h */,
+				C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */,
 				C55B2B2D2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.h */,
 				C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */,
 				C55B2B262255ED5800ABE0C5 /* GPUImageStarLightFilter.h */,
@@ -265,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55B2B322255F9BD00ABE0C5 /* GPUImageBlurFilter.m in Sources */,
 				C505D49E2254C10D0071FD47 /* ViewController.mm in Sources */,
 				C505D4A92254C10F0071FD47 /* main.m in Sources */,
 				C55B2B2F2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m in Sources */,
