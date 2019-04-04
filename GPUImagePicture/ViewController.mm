@@ -89,4 +89,18 @@
 }
 
 
+
+- (IBAction)openAlbum:(id)sender {
+}
+
+- (IBAction)saveImage:(id)sender {
+}
+
+
+- (IBAction)sliderChange:(id)sender {
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider* slider = (UISlider*)sender;
+    }
+}
+
 @end
