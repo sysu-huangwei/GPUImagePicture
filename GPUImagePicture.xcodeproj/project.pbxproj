@@ -16,6 +16,8 @@
 		C505D4A92254C10F0071FD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C505D4A82254C10F0071FD47 /* main.m */; };
 		C505D4B02254CA230071FD47 /* 逆向.png in Resources */ = {isa = PBXBuildFile; fileRef = C505D4AF2254CA230071FD47 /* 逆向.png */; };
 		C505D4B42254CBF00071FD47 /* blur.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C505D4B32254CBF00071FD47 /* blur.fsh */; };
+		C5AD5D422255A3500023AAD4 /* antilux.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C5AD5D412255A3500023AAD4 /* antilux.fsh */; };
+		C5AD5D442255A8B90023AAD4 /* cdf.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AD5D432255A8B90023AAD4 /* cdf.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C505D4A82254C10F0071FD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C505D4AF2254CA230071FD47 /* 逆向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "逆向.png"; sourceTree = "<group>"; };
 		C505D4B32254CBF00071FD47 /* blur.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blur.fsh; sourceTree = "<group>"; };
+		C5AD5D412255A3500023AAD4 /* antilux.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = antilux.fsh; sourceTree = "<group>"; };
+		C5AD5D432255A8B90023AAD4 /* cdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cdf.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,10 @@
 		C505D48D2254C10D0071FD47 = {
 			isa = PBXGroup;
 			children = (
+				C5AD5D412255A3500023AAD4 /* antilux.fsh */,
 				C505D4B32254CBF00071FD47 /* blur.fsh */,
 				C505D4AF2254CA230071FD47 /* 逆向.png */,
+				C5AD5D432255A8B90023AAD4 /* cdf.png */,
 				C505D4982254C10D0071FD47 /* GPUImagePicture */,
 				C505D4972254C10D0071FD47 /* Products */,
 				A07262EDC29A028D01C863DC /* Pods */,
@@ -163,6 +169,8 @@
 				C505D4B02254CA230071FD47 /* 逆向.png in Resources */,
 				C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */,
 				C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */,
+				C5AD5D422255A3500023AAD4 /* antilux.fsh in Resources */,
+				C5AD5D442255A8B90023AAD4 /* cdf.png in Resources */,
 				C505D4B42254CBF00071FD47 /* blur.fsh in Resources */,
 				C505D4A12254C10D0071FD47 /* Main.storyboard in Resources */,
 			);

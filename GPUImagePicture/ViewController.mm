@@ -12,6 +12,7 @@
 @interface ViewController ()
 @property (nonatomic, strong) GPUImageFilter *blurFilterHorizontal;
 @property (nonatomic, strong) GPUImageFilter *blurFilterVertical;
+@property (nonatomic, strong) GPUImageTwoInputFilter *antiluxFilter;
 @end
 
 @implementation ViewController
@@ -27,12 +28,17 @@
     
     GPUImagePicture *picture = [[GPUImagePicture alloc] initWithImage:image];
 
-    
     [picture addTarget:self.blurFilterHorizontal];
     [self.blurFilterHorizontal addTarget:self.blurFilterVertical];
     [self.blurFilterVertical addTarget:view];
+//    [picture addTarget:self.antiluxFilter];
+//    [self.blurFilterVertical addTarget:self.antiluxFilter];
+//    [self.antiluxFilter addTarget:view];
     
     [picture processImage];
+    [self.blurFilterVertical useNextFrameForImageCapture];
+    UIImage* result = [self.blurFilterVertical imageFromCurrentFramebuffer];
+    NSLog(@"1");
 }
 
 
@@ -50,6 +56,18 @@
         [_blurFilterVertical setPoint:CGPointMake(0.000000, 0.000805) forUniformName:@"blurVector"];
     }
     return _blurFilterVertical;
+}
+
+
+- (GPUImageTwoInputFilter *)antiluxFilter {
+    if (!_antiluxFilter) {
+        _antiluxFilter = [[GPUImageTwoInputFilter alloc] initWithFragmentShaderFromFile:@"antilux"];
+        [_antiluxFilter setFloat:1.00 forUniformName:@"filterStrength"];
+        NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"cdf.png"];
+        GLuint cdf = LoadFileToTexture(path);
+        [_antiluxFilter setInteger:cdf forUniformName:@"cdf"];
+    }
+    return _antiluxFilter;
 }
 
 
