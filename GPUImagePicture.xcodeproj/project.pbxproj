@@ -104,19 +104,12 @@
 		C505D4982254C10D0071FD47 /* GPUImagePicture */ = {
 			isa = PBXGroup;
 			children = (
+				C55B2B362256240F00ABE0C5 /* Filters */,
 				C55B2B292255EE2900ABE0C5 /* Utils */,
 				C505D4992254C10D0071FD47 /* AppDelegate.h */,
 				C505D49A2254C10D0071FD47 /* AppDelegate.m */,
 				C505D49C2254C10D0071FD47 /* ViewController.h */,
 				C505D49D2254C10D0071FD47 /* ViewController.mm */,
-				C55B2B302255F9BD00ABE0C5 /* GPUImageBlurFilter.h */,
-				C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */,
-				C55B2B2D2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.h */,
-				C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */,
-				C55B2B262255ED5800ABE0C5 /* GPUImageStarLightFilter.h */,
-				C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */,
-				C55B2B332255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.h */,
-				C55B2B342255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m */,
 				C505D49F2254C10D0071FD47 /* Main.storyboard */,
 				C505D4A22254C10F0071FD47 /* Assets.xcassets */,
 				C505D4A42254C10F0071FD47 /* LaunchScreen.storyboard */,
@@ -133,6 +126,21 @@
 				C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C55B2B362256240F00ABE0C5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				C55B2B302255F9BD00ABE0C5 /* GPUImageBlurFilter.h */,
+				C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */,
+				C55B2B2D2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.h */,
+				C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */,
+				C55B2B262255ED5800ABE0C5 /* GPUImageStarLightFilter.h */,
+				C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */,
+				C55B2B332255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.h */,
+				C55B2B342255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		E8FF14FB354B94FD5558350C /* Frameworks */ = {
