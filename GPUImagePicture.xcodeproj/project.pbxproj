@@ -14,13 +14,13 @@
 		C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A22254C10F0071FD47 /* Assets.xcassets */; };
 		C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A42254C10F0071FD47 /* LaunchScreen.storyboard */; };
 		C505D4A92254C10F0071FD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C505D4A82254C10F0071FD47 /* main.m */; };
-		C505D4B02254CA230071FD47 /* 逆向.png in Resources */ = {isa = PBXBuildFile; fileRef = C505D4AF2254CA230071FD47 /* 逆向.png */; };
 		C55B2B282255ED5800ABE0C5 /* GPUImageStarLightFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */; };
 		C55B2B2C2255EE4D00ABE0C5 /* GLUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */; };
 		C55B2B2F2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */; };
 		C55B2B322255F9BD00ABE0C5 /* GPUImageBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B312255F9BD00ABE0C5 /* GPUImageBlurFilter.m */; };
 		C55B2B352255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B342255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m */; };
 		C5AD5D442255A8B90023AAD4 /* cdf.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AD5D432255A8B90023AAD4 /* cdf.png */; };
+		C5FDDBD4225AE67500973727 /* 逆向.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C5FDDBD3225AE67500973727 /* 逆向.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		C505D4A52254C10F0071FD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C505D4A72254C10F0071FD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C505D4A82254C10F0071FD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C505D4AF2254CA230071FD47 /* 逆向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "逆向.png"; sourceTree = "<group>"; };
 		C55B2B262255ED5800ABE0C5 /* GPUImageStarLightFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageStarLightFilter.h; sourceTree = "<group>"; };
 		C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageStarLightFilter.m; sourceTree = "<group>"; };
 		C55B2B2A2255EE4D00ABE0C5 /* GLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		C55B2B332255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoWayMixFilter.h; sourceTree = "<group>"; };
 		C55B2B342255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageTwoWayMixFilter.m; sourceTree = "<group>"; };
 		C5AD5D432255A8B90023AAD4 /* cdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cdf.png; sourceTree = "<group>"; };
+		C5FDDBD3225AE67500973727 /* 逆向.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "逆向.JPG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 		C505D48D2254C10D0071FD47 = {
 			isa = PBXGroup;
 			children = (
-				C505D4AF2254CA230071FD47 /* 逆向.png */,
+				C5FDDBD3225AE67500973727 /* 逆向.JPG */,
 				C5AD5D432255A8B90023AAD4 /* cdf.png */,
 				C505D4982254C10D0071FD47 /* GPUImagePicture */,
 				C505D4972254C10D0071FD47 /* Products */,
@@ -201,7 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C505D4B02254CA230071FD47 /* 逆向.png in Resources */,
+				C5FDDBD4225AE67500973727 /* 逆向.JPG in Resources */,
 				C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */,
 				C505D4A32254C10F0071FD47 /* Assets.xcassets in Resources */,
 				C5AD5D442255A8B90023AAD4 /* cdf.png in Resources */,
