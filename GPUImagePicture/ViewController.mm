@@ -148,6 +148,7 @@
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider* slider = (UISlider*)sender;
         float value = slider.value;
+        [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(value * 100)]];
         [self.mixFilter setLuxBlendAmount:value];
         [_picture processImage];
     }
