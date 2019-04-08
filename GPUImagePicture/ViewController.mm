@@ -35,7 +35,7 @@
     _imagePickerController = [[UIImagePickerController alloc] init];
     _imagePickerController.delegate = self;
     
-    NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"逆向.png"];
+    NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"逆向.JPG"];
     UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
     
     _imageView = [[GPUImageView alloc] initWithFrame:self.showView.frame];
