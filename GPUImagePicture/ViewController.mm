@@ -9,19 +9,12 @@
 #import "ViewController.h"
 #import <GPUImage/GPUImage.h>
 #import "GLUtils.h"
-#import "GPUImageStarLightFilter.h"
-#import "GPUImageAntiLuxFilter.h"
-#import "GPUImageBlurFilter.h"
-#import "GPUImageTwoWayMixFilter.h"
+#import "GPUImageLuxFilter.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) GPUImagePicture *picture;
 
-@property (nonatomic, strong) GPUImageBlurFilter *blurFilterHorizontal;
-@property (nonatomic, strong) GPUImageBlurFilter *blurFilterVertical;
-@property (nonatomic, strong) GPUImageAntiLuxFilter *antiluxFilter;
-@property (nonatomic, strong) GPUImageStarLightFilter *starlightFilter;
-@property (nonatomic, strong) GPUImageTwoWayMixFilter *mixFilter;
+@property (nonatomic, strong) GPUImageLuxFilter *luxFilter;
 
 @property (nonatomic, strong) GPUImageView *imageView;
 @end
@@ -43,68 +36,19 @@
     
     _picture = [[GPUImagePicture alloc] initWithImage:image];
 
-    //变亮的部分
-    [_picture addTarget:self.blurFilterHorizontal];
-    [_picture addTarget:self.antiluxFilter];
-    [_picture addTarget:self.mixFilter];
-    [self.blurFilterHorizontal addTarget:self.blurFilterVertical];
-    [self.blurFilterVertical addTarget:self.antiluxFilter];
-    [self.antiluxFilter addTarget:self.mixFilter];
-
-    //变暗的部分
-    [_picture addTarget:self.starlightFilter];
-    [self.starlightFilter addTarget:self.mixFilter];
-
-    [self.mixFilter addTarget:_imageView];
+    [_picture addTarget:self.luxFilter];
+    [self.luxFilter addTarget:_imageView];
     
     [_picture processImage];
     
 }
 
 
-- (GPUImageBlurFilter *)blurFilterHorizontal {
-    if (!_blurFilterHorizontal) {
-        _blurFilterHorizontal = [[GPUImageBlurFilter alloc] init];
-        [_blurFilterHorizontal setBlurVector:CGPointMake(0.000805, 0.000000)];
+- (GPUImageLuxFilter *)luxFilter {
+    if (!_luxFilter) {
+        _luxFilter = [[GPUImageLuxFilter alloc] init];
     }
-    return _blurFilterHorizontal;
-}
-
-- (GPUImageBlurFilter *)blurFilterVertical {
-    if (!_blurFilterVertical) {
-        _blurFilterVertical = [[GPUImageBlurFilter alloc] init];
-        [_blurFilterHorizontal setBlurVector:CGPointMake(0.000000, 0.000805)];
-    }
-    return _blurFilterVertical;
-}
-
-
-- (GPUImageAntiLuxFilter *)antiluxFilter {
-    if (!_antiluxFilter) {
-        NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"cdf.png"];
-        _antiluxFilter = [[GPUImageAntiLuxFilter alloc] initWithCDFPath:path];
-        [_antiluxFilter setFilterStrength:1.0f];
-    }
-    return _antiluxFilter;
-}
-
-
-- (GPUImageStarLightFilter *)starlightFilter {
-    if (!_starlightFilter) {
-        NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"cdf.png"];
-        _starlightFilter = [[GPUImageStarLightFilter alloc] initWithCDFPath:path];
-        [_starlightFilter setFilterStrength:1.0f];
-    }
-    return _starlightFilter;
-}
-
-
-- (GPUImageTwoWayMixFilter *)mixFilter {
-    if (!_mixFilter) {
-        _mixFilter = [[GPUImageTwoWayMixFilter alloc] init];
-        [_mixFilter setLuxBlendAmount:0.0f];
-    }
-    return _mixFilter;
+    return _luxFilter;
 }
 
 
@@ -122,9 +66,9 @@
 }
 
 - (IBAction)saveImage:(id)sender {
-    [self.mixFilter useNextFrameForImageCapture];
+    [self.luxFilter useNextFrameForImageCapture];
     [_picture processImage];
-    UIImage* result = [self.mixFilter imageFromCurrentFramebuffer];
+    UIImage* result = [self.luxFilter imageFromCurrentFramebuffer];
     UIImageWriteToSavedPhotosAlbum(result, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
@@ -149,7 +93,7 @@
         UISlider* slider = (UISlider*)sender;
         float value = slider.value;
         [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(value * 100)]];
-        [self.mixFilter setLuxBlendAmount:value];
+        [self.luxFilter setLuxBlendAmount:value];
         [_picture processImage];
     }
 }
@@ -165,28 +109,9 @@
     
     if (image != nil) {
         _picture = [[GPUImagePicture alloc] initWithImage:image];
-        
         [_picture removeAllTargets];
-        [self.blurFilterHorizontal removeAllTargets];
-        [self.blurFilterVertical removeAllTargets];
-        [self.antiluxFilter removeAllTargets];
-        [self.starlightFilter removeAllTargets];
-        [self.mixFilter removeAllTargets];
-        
-        //变亮的部分
-        [_picture addTarget:self.blurFilterHorizontal];
-        [_picture addTarget:self.antiluxFilter];
-        [_picture addTarget:self.mixFilter];
-        [self.blurFilterHorizontal addTarget:self.blurFilterVertical];
-        [self.blurFilterVertical addTarget:self.antiluxFilter];
-        [self.antiluxFilter addTarget:self.mixFilter];
-        
-        //变暗的部分
-        [_picture addTarget:self.starlightFilter];
-        [self.starlightFilter addTarget:self.mixFilter];
-        
-        [self.mixFilter addTarget:_imageView];
-        
+        [_picture addTarget:self.luxFilter];
+        [self.luxFilter addTarget:_imageView];
         [_picture processImage];
     }
 }
