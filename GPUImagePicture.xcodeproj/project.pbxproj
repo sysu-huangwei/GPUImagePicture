@@ -113,16 +113,7 @@
 			path = GPUImagePicture;
 			sourceTree = "<group>";
 		};
-		C55B2B292255EE2900ABE0C5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C55B2B2A2255EE4D00ABE0C5 /* GLUtils.h */,
-				C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		C55B2B362256240F00ABE0C5 /* Filters */ = {
+		C53C4297225F494F002C5DD6 /* Lux */ = {
 			isa = PBXGroup;
 			children = (
 				C55B2B302255F9BD00ABE0C5 /* GPUImageBlurFilter.h */,
@@ -135,6 +126,23 @@
 				C55B2B342255FCB600ABE0C5 /* GPUImageTwoWayMixFilter.m */,
 				C53C4294225F28D2002C5DD6 /* GPUImageLuxFilter.h */,
 				C53C4295225F28D2002C5DD6 /* GPUImageLuxFilter.m */,
+			);
+			path = Lux;
+			sourceTree = "<group>";
+		};
+		C55B2B292255EE2900ABE0C5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C55B2B2A2255EE4D00ABE0C5 /* GLUtils.h */,
+				C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C55B2B362256240F00ABE0C5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				C53C4297225F494F002C5DD6 /* Lux */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
