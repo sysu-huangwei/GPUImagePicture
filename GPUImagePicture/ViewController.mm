@@ -59,7 +59,7 @@
     if (!_gaussianFilter) {
         _gaussianFilter = [[GPUImageGaussianFilter alloc] init];
     }
-    return _gaussionFilter;
+    return _gaussianFilter;
 }
 
 

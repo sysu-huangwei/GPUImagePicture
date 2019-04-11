@@ -6,7 +6,7 @@
 //  Copyright © 2019 meitu. All rights reserved.
 //
 
-#import "GPUImageGaussionFilter.h"
+#import "GPUImageGaussianFilter.h"
 
 NSString *const kGPUImageGaussianFragmentShaderString = SHADER_STRING
 (
