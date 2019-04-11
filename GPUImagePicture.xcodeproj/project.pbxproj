@@ -15,6 +15,7 @@
 		C505D4A62254C10F0071FD47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C505D4A42254C10F0071FD47 /* LaunchScreen.storyboard */; };
 		C505D4A92254C10F0071FD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C505D4A82254C10F0071FD47 /* main.m */; };
 		C53C4296225F28D2002C5DD6 /* GPUImageLuxFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C4295225F28D2002C5DD6 /* GPUImageLuxFilter.m */; };
+		C53C429B225F5835002C5DD6 /* GPUImageGaussianFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C429A225F5834002C5DD6 /* GPUImageGaussianFilter.m */; };
 		C55B2B282255ED5800ABE0C5 /* GPUImageStarLightFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */; };
 		C55B2B2C2255EE4D00ABE0C5 /* GLUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2B2255EE4D00ABE0C5 /* GLUtils.mm */; };
 		C55B2B2F2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2B2E2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m */; };
@@ -40,6 +41,8 @@
 		C505D4A82254C10F0071FD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C53C4294225F28D2002C5DD6 /* GPUImageLuxFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageLuxFilter.h; sourceTree = "<group>"; };
 		C53C4295225F28D2002C5DD6 /* GPUImageLuxFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageLuxFilter.m; sourceTree = "<group>"; };
+		C53C4299225F5834002C5DD6 /* GPUImageGaussianFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageGaussianFilter.h; sourceTree = "<group>"; };
+		C53C429A225F5834002C5DD6 /* GPUImageGaussianFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageGaussianFilter.m; sourceTree = "<group>"; };
 		C55B2B262255ED5800ABE0C5 /* GPUImageStarLightFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageStarLightFilter.h; sourceTree = "<group>"; };
 		C55B2B272255ED5800ABE0C5 /* GPUImageStarLightFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageStarLightFilter.m; sourceTree = "<group>"; };
 		C55B2B2A2255EE4D00ABE0C5 /* GLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
@@ -130,6 +133,15 @@
 			path = Lux;
 			sourceTree = "<group>";
 		};
+		C53C4298225F575A002C5DD6 /* HighLight */ = {
+			isa = PBXGroup;
+			children = (
+				C53C4299225F5834002C5DD6 /* GPUImageGaussianFilter.h */,
+				C53C429A225F5834002C5DD6 /* GPUImageGaussianFilter.m */,
+			);
+			path = HighLight;
+			sourceTree = "<group>";
+		};
 		C55B2B292255EE2900ABE0C5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		C55B2B362256240F00ABE0C5 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				C53C4298225F575A002C5DD6 /* HighLight */,
 				C53C4297225F494F002C5DD6 /* Lux */,
 			);
 			path = Filters;
@@ -291,6 +304,7 @@
 				C55B2B2F2255F63E00ABE0C5 /* GPUImageAntiLuxFilter.m in Sources */,
 				C505D49B2254C10D0071FD47 /* AppDelegate.m in Sources */,
 				C55B2B282255ED5800ABE0C5 /* GPUImageStarLightFilter.m in Sources */,
+				C53C429B225F5835002C5DD6 /* GPUImageGaussianFilter.m in Sources */,
 				C53C4296225F28D2002C5DD6 /* GPUImageLuxFilter.m in Sources */,
 				C55B2B2C2255EE4D00ABE0C5 /* GLUtils.mm in Sources */,
 			);

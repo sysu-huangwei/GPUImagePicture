@@ -11,10 +11,14 @@
 #import "GLUtils.h"
 #import "GPUImageLuxFilter.h"
 
+#import "GPUImageGaussianFilter.h"
+
 @interface ViewController ()
 @property (nonatomic, strong) GPUImagePicture *picture;
 
 @property (nonatomic, strong) GPUImageLuxFilter *luxFilter;
+
+@property (nonatomic, strong) GPUImageGaussianFilter *gaussianFilter;
 
 @property (nonatomic, strong) GPUImageView *imageView;
 @end
@@ -36,8 +40,8 @@
     
     _picture = [[GPUImagePicture alloc] initWithImage:image];
 
-    [_picture addTarget:self.luxFilter];
-    [self.luxFilter addTarget:_imageView];
+    [_picture addTarget:self.gaussianFilter];
+    [self.gaussianFilter addTarget:_imageView];
     
     [_picture processImage];
     
@@ -49,6 +53,13 @@
         _luxFilter = [[GPUImageLuxFilter alloc] init];
     }
     return _luxFilter;
+}
+
+- (GPUImageGaussianFilter *)gaussianFilter {
+    if (!_gaussianFilter) {
+        _gaussianFilter = [[GPUImageGaussianFilter alloc] init];
+    }
+    return _gaussionFilter;
 }
 
 
