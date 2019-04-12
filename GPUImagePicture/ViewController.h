@@ -13,5 +13,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *sliderValueText;
 @property (strong, nonatomic) IBOutlet UIView *showView;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
+@property (strong, nonatomic) IBOutlet UISlider *valueSlider;
+@property (strong, nonatomic) IBOutlet UIButton *highLightButton;
+@property (strong, nonatomic) IBOutlet UIButton *shadowButtom;
 @end
 

@@ -12,6 +12,11 @@
 #import "GPUImageLuxFilter.h"
 #import "GPUImageHighLightFilter.h"
 
+typedef NS_ENUM(NSInteger, InsEffectType){
+    InsEffectTypeHighLight = 1,
+    InsEffectTypeShadow = 2,
+};
+
 @interface ViewController ()
 @property (nonatomic, strong) GPUImagePicture *picture;
 
@@ -19,12 +24,21 @@
 @property (nonatomic, strong) GPUImageHighLightFilter *highLightFilter;
 
 @property (nonatomic, strong) GPUImageView *imageView;
+
+@property (nonatomic, assign) InsEffectType effectType;
+@property (nonatomic, assign) float highLightValue;
+@property (nonatomic, assign) float shadowValue;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _effectType = InsEffectTypeHighLight;
+    _highLightValue = 0.0f;
+    _shadowValue = 0.0f;
+    [_highLightButton setBackgroundColor:[[UIColor alloc] initWithRed:0.9 green:0.9 blue:1.0 alpha:1.0]];
     
     //调用相机和相册
     _imagePickerController = [[UIImagePickerController alloc] init];
@@ -62,6 +76,7 @@
     if (!_highLightFilter) {
         _highLightFilter = [[GPUImageHighLightFilter alloc] init];
         [_highLightFilter setHighlights:0.0f];
+        [_highLightFilter setShadows:0.0f];
     }
     return _highLightFilter;
 }
@@ -82,11 +97,30 @@
 }
 
 - (IBAction)saveImage:(id)sender {
-    [self.luxFilter useNextFrameForImageCapture];
     [_picture processImage];
-    UIImage* result = [self.luxFilter imageFromCurrentFramebuffer];
+    [self.highLightFilter useNextFrameForImageCapture];
+    UIImage* result = [self.highLightFilter imageFromCurrentFramebuffer];
     UIImageWriteToSavedPhotosAlbum(result, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
+
+
+- (IBAction)highLightButton:(id)sender {
+    _effectType = InsEffectTypeHighLight;
+    [_shadowButtom setBackgroundColor:[[UIColor alloc] initWithRed:1.0 green:1.0 blue:1.0 alpha:0.0]];
+    [_highLightButton setBackgroundColor:[[UIColor alloc] initWithRed:0.9 green:0.9 blue:1.0 alpha:1.0]];
+    [_valueSlider setValue:_highLightValue];
+    [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(_highLightValue * 100)]];
+    
+}
+
+- (IBAction)shadowButton:(id)sender {
+    _effectType = InsEffectTypeShadow;
+    [_highLightButton setBackgroundColor:[[UIColor alloc] initWithRed:1.0 green:1.0 blue:1.0 alpha:0.0]];
+    [_shadowButtom setBackgroundColor:[[UIColor alloc] initWithRed:0.9 green:0.9 blue:1.0 alpha:1.0]];
+    [_valueSlider setValue:_shadowValue];
+    [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(_shadowValue * 100)]];
+}
+
 
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
@@ -109,7 +143,14 @@
         UISlider* slider = (UISlider*)sender;
         float value = slider.value;
         [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(value * 100)]];
-        [self.highLightFilter setShadows:value];
+        if (_effectType == InsEffectTypeHighLight) {
+            [self.highLightFilter setHighlights:value];
+            _highLightValue = value;
+        }
+        else {
+            [self.highLightFilter setShadows:value];
+            _shadowValue = value;
+        }
         [_picture processImage];
     }
 }
@@ -124,10 +165,10 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     if (image != nil) {
-        _picture = [[GPUImagePicture alloc] initWithImage:image];
         [_picture removeAllTargets];
-        [_picture addTarget:self.luxFilter];
-        [self.luxFilter addTarget:_imageView];
+        _picture = [[GPUImagePicture alloc] initWithImage:image];
+        [_picture addTarget:self.highLightFilter];
+        [self.highLightFilter addTarget:_imageView];
         [_picture processImage];
     }
 }
