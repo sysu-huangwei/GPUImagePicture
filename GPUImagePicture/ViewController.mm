@@ -12,13 +12,16 @@
 #import "GPUImageLuxFilter.h"
 
 #import "GPUImageGaussianFilter.h"
+#import "GPUImageBlurredLumAdjustFilter.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) GPUImagePicture *picture;
 
 @property (nonatomic, strong) GPUImageLuxFilter *luxFilter;
 
-@property (nonatomic, strong) GPUImageGaussianFilter *gaussianFilter;
+@property (nonatomic, strong) GPUImageGaussianFilter *gaussianFilterX;
+@property (nonatomic, strong) GPUImageGaussianFilter *gaussianFilterY;
+@property (nonatomic, strong) GPUImageBlurredLumAdjustFilter *blurredLumAdjustFilter;
 
 @property (nonatomic, strong) GPUImageView *imageView;
 @end
@@ -40,10 +43,18 @@
     
     _picture = [[GPUImagePicture alloc] initWithImage:image];
 
-    [_picture addTarget:self.gaussianFilter];
-    [self.gaussianFilter addTarget:_imageView];
+    [_picture addTarget:self.gaussianFilterX];
+    [_picture addTarget:self.gaussianFilterY];
+    [_picture addTarget:self.blurredLumAdjustFilter];
+    [self.gaussianFilterX addTarget:self.blurredLumAdjustFilter];
+    [self.gaussianFilterY addTarget:self.blurredLumAdjustFilter];
+    [self.blurredLumAdjustFilter addTarget:_imageView];
     
     [_picture processImage];
+    
+    [self.blurredLumAdjustFilter useNextFrameForImageCapture];
+    UIImage* result = [self.blurredLumAdjustFilter imageFromCurrentFramebuffer];
+    NSLog(@"1");
     
 }
 
@@ -55,13 +66,30 @@
     return _luxFilter;
 }
 
-- (GPUImageGaussianFilter *)gaussianFilter {
-    if (!_gaussianFilter) {
-        _gaussianFilter = [[GPUImageGaussianFilter alloc] init];
+- (GPUImageGaussianFilter *)gaussianFilterX {
+    if (!_gaussianFilterX) {
+        _gaussianFilterX = [[GPUImageGaussianFilter alloc] init];
+        [_gaussianFilterX setBlurAlongX:YES];
     }
-    return _gaussianFilter;
+    return _gaussianFilterX;
 }
 
+- (GPUImageGaussianFilter *)gaussianFilterY {
+    if (!_gaussianFilterY) {
+        _gaussianFilterY = [[GPUImageGaussianFilter alloc] init];
+        [_gaussianFilterY setBlurAlongX:NO];
+    }
+    return _gaussianFilterY;
+}
+
+- (GPUImageBlurredLumAdjustFilter *)blurredLumAdjustFilter {
+    if (!_blurredLumAdjustFilter) {
+        NSString* path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"splines.png"];
+        _blurredLumAdjustFilter = [[GPUImageBlurredLumAdjustFilter alloc] initWithSPLinesPath:path];
+        [_blurredLumAdjustFilter setHighlights:1.0f];
+    }
+    return _blurredLumAdjustFilter;
+}
 
 - (IBAction)openAlbum:(id)sender {
     // 进入相册
@@ -104,7 +132,7 @@
         UISlider* slider = (UISlider*)sender;
         float value = slider.value;
         [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(value * 100)]];
-        [self.luxFilter setLuxBlendAmount:value];
+        [self.blurredLumAdjustFilter setHighlights:value];
         [_picture processImage];
     }
 }

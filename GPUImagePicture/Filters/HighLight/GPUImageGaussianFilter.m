@@ -83,13 +83,13 @@ NSString *const kGPUImageGaussianFragmentShaderString = SHADER_STRING
 @implementation GPUImageGaussianFilter
 
 - (instancetype) init {
-    if (!(self = [super initWithFragmentShaderFromString:kGPUImageGaussionFragmentShaderString]))
+    if (!(self = [super initWithFragmentShaderFromString:kGPUImageGaussianFragmentShaderString]))
     {
         return nil;
     }
     runSynchronouslyOnVideoProcessingQueue(^{
         _blurAlongXUniform = [filterProgram uniformIndex:@"blurAlongX"];
-        _blurAlongX = NO;
+        _blurAlongX = YES;
         _widthUniform = [filterProgram uniformIndex:@"width"];
         _heightUniform = [filterProgram uniformIndex:@"height"];
     });
