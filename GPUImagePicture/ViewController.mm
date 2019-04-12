@@ -40,7 +40,7 @@
 
     [_picture addTarget:self.highLightFilter];
     [self.highLightFilter addTarget:_imageView];
-
+    
     [_picture processImage];
     
     [self.highLightFilter useNextFrameForImageCapture];
@@ -109,7 +109,7 @@
         UISlider* slider = (UISlider*)sender;
         float value = slider.value;
         [_sliderValueText setText:[NSString stringWithFormat:@"%d", (int)(value * 100)]];
-        [self.highLightFilter setHighlights:value];
+        [self.highLightFilter setShadows:value];
         [_picture processImage];
     }
 }

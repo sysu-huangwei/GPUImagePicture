@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(readwrite, nonatomic) CGFloat highlights;
 
+@property(readwrite, nonatomic) CGFloat shadows;
+
 - (instancetype) initWithSPLinesPath:(NSString*) path;
 
 @end

@@ -70,4 +70,8 @@
     [self.blurredLumAdjustFilter setHighlights:highlights];
 }
 
+- (void)setShadows:(CGFloat) shadows {
+    [self.blurredLumAdjustFilter setShadows:shadows];
+}
+
 @end

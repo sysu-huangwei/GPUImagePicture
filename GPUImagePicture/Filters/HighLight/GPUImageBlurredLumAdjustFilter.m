@@ -21,8 +21,8 @@ NSString *const kGPUImageBlurredLumAdjustFragmentShaderString = SHADER_STRING
  uniform sampler2D inputImageTexture3;//shadowsBlur
  uniform sampler2D splines;
  uniform float highlights;
+ uniform float shadows;
  const float TOOL_ON_EPSILON = 0.009;
- const float shadows = 0.0;
  const float sharpen = 0.0;
  const float splines_shadows_offset = 0.25;
  const float splines_shadowsNeg_offset = 0.75;
@@ -147,6 +147,7 @@ NSString *const kGPUImageBlurredLumAdjustFragmentShaderString = SHADER_STRING
 
 @interface GPUImageBlurredLumAdjustFilter()
 @property(readwrite, nonatomic) GLint highlightsUniform;
+@property(readwrite, nonatomic) GLint shadowsUniform;
 @property(readwrite, nonatomic) GLint splinesTextureUniform;
 @property(readwrite, nonatomic) GLuint splinesTextureID;
 @end
@@ -162,6 +163,8 @@ NSString *const kGPUImageBlurredLumAdjustFragmentShaderString = SHADER_STRING
     runSynchronouslyOnVideoProcessingQueue(^{
         _highlightsUniform = [filterProgram uniformIndex:@"highlights"];
         _highlights = 0.0f;
+        _shadowsUniform = [filterProgram uniformIndex:@"shadows"];
+        _shadows = 0.0f;
         _splinesTextureUniform = [filterProgram uniformIndex:@"splines"];
         _splinesTextureID = [GLUtils LoadFileToTexture:path];
     });
@@ -181,6 +184,11 @@ NSString *const kGPUImageBlurredLumAdjustFragmentShaderString = SHADER_STRING
 - (void)setHighlights:(CGFloat)highlights {
     _highlights = highlights;
     [self setFloat:_highlights forUniform:_highlightsUniform program:filterProgram];
+}
+
+- (void)setShadows:(CGFloat)shadows {
+    _shadows = shadows;
+    [self setFloat:_shadows forUniform:_shadowsUniform program:filterProgram];
 }
 
 
